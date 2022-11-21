@@ -1,6 +1,6 @@
 <template>
 
-  <nav class="menu" v-bind:class="active" v-on:click.prevent>
+  <nav class="menu" v-on:click.prevent>
 
     <ul class="menu__list">
 
@@ -30,8 +30,7 @@ export default {
   components: {
     CrmMenuItem,
   },
-  props: ['menuItems', 'currentPage'],
-  computed: {}
+  props: ['menuItems', 'currentPage']
 }
 
 </script>

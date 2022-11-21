@@ -1,12 +1,12 @@
 {
   "name": "crm-vue",
   "version": "1.0.0",
-  "private": true,
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "deploy": "push-dir --dir=dist --branch=gh-pages"
   },
   "dependencies": {
     "@nuxtjs/pwa": "^3.3.5",
@@ -19,9 +19,11 @@
   "devDependencies": {
     "@nuxt/types": "^2.15.8",
     "@nuxt/typescript-build": "^2.1.0",
+    "push-dir": "^0.4.1",
     "vue-svg-loader": "^0.16.0"
   },
   "main": "index.js",
   "author": "leprokuda <leprokuda@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": "https://github.com/leprokuda/crm-vue.git"
 }

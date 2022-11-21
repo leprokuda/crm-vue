@@ -1,0 +1,10 @@
+{
+  "name": "crm-vue",
+  "short_name": "crm-vue",
+  "description": "## Build Setup",
+  "icons": [],
+  "start_url": "/crm-vue/?standalone=true",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "lang": "en"
+}

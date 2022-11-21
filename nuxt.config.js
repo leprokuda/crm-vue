@@ -2,8 +2,8 @@ export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
   target: 'static',
-  generate: {
-    dir: 'crm'
+  router: {
+    base: '/crm-vue/'
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head

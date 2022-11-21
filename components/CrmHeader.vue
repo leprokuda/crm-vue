@@ -8,7 +8,7 @@
       <div class="header__menu">
 
         <h2 class="header__title">
-          Администрирование
+          {{ title }}
         </h2>
         <div class="header__user">
 
@@ -44,6 +44,7 @@ export default {
     NotificationIcon: require('!vue-svg-loader!@/assets/img/bell.svg'),
     ExitIcon: require('!vue-svg-loader!@/assets/img/exit.svg')
   },
+  props: ['title']
 }
 
 </script>

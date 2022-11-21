@@ -1,25 +1,16 @@
 <template>
 
-  <ul class="menu__list">
-
-    <nuxt-link
-      v-for="item in items"
-      class="item__office"
-      v-on:click="makeActive('item__office')"
-      :to=item.path
-    >
-      <li class="menu__item">
-        {{ item.icon }}
-        {{ item.title }}
-      </li>
-    </nuxt-link>
-
-  </ul>
+  <li class="menu__item"
+    :class="[currentPage === itemData.title ? itemData.class : '']"
+  >
+    <component :is="itemData.icon"/>
+    {{ itemData.title }}
+  </li>
 
 </template>
 
 <script lang="ts">
-import DeskIcon from '@/assets/img/menu/desk.svg'
+
 export default {
   name: 'CrmMenuItem',
   components: {
@@ -35,29 +26,92 @@ export default {
     AnalyticsIcon: require('!vue-svg-loader!@/assets/img/menu/analytics.svg'),
     MyOfficeIcon: require('!vue-svg-loader!@/assets/img/menu/user.svg'),
   },
-  data() {
-    return {
-      items: [
-        {id: 1, title: 'Рабочий стол', icon: DeskIcon, path: '/desk'},
-        {id: 2, title: 'Администрирование', icon: '<AdministrationIcon/>', path: '/admin'},
-        {id: 3, title: 'Кадровый учет', icon: `<PersonnelAccountingIcon/>`, path: '/personnel'},
-        {id: 4, title: 'Подбор персонала', icon: `<RecruitmentIcon/>`, path: '/recruitment'},
-        {id: 5, title: 'Конструктор ботов', icon: `<BotConstructorIcon/>`, path: '/constructor'},
-        {id: 6, title: 'Интернет-магазин', icon: `<OnlineStoreIcon/>`, path: '/store'},
-        {id: 7, title: 'Оплаты', icon: `<PaymentsIcon/>`, path: '/payments'},
-        {id: 8, title: 'Общение', icon: `<CommunicationIcon/>`, path: '/communication'},
-        {id: 9, title: 'Парсеры и боты', icon: `<ParsersBotsIcon/>`, path: '/parsers'},
-        {id: 10, title: 'Статистика', icon: `<AnalyticsIcon/>`, path: '/analytics'},
-        {id: 11, title: 'Мой кабинет', icon: `<MyOfficeIcon/>`, path: '/office'},
-      ]
-    }
-
-  },
-  props: ['id', 'title', 'icon', 'path'],
+  props: {
+    currentPage: String,
+    itemData: {
+      id: Number,
+      icon: String,
+      title: String,
+      path: String,
+      class: String,
+    },
+  }
 }
 
 </script>
 
 <style lang="scss">
 
-</style>
+  .menu__item {
+    display: flex;
+    align-items: center;
+    padding: 12px 30px;
+    cursor: pointer;
+    background-color: transparent;
+  }
+
+  .menu__item svg {
+    padding-right: 30px;
+  }
+
+  // ====================== Стили активных пунктов меню =========================
+
+  .item__desk, .item__admin, .item__personnel, .item__recruitment,
+  .item__constructor, .item__store, .item__payments,
+  .item__communicate, .item__parsers, .item__analytics, .item__office {
+    color: #FFFFFF;
+  }
+
+  li[class*="item__desk"] > svg,
+  li[class*="item__admin"] > svg,
+  li[class*="item__personnel"] > svg,
+  li[class*="item__recruitment"] > svg,
+  li[class*="item__constructor"] > svg,
+  li[class*="item__store"] > svg,
+  li[class*="item__payments"] > svg,
+  li[class*="item__communicate"] > svg,
+  li[class*="item__parsers"] > svg,
+  li[class*="item__analytics"] > svg,
+  li[class*="item__office"] > svg {
+    color: #FFFFFF;
+  }
+
+  .item__desk {
+    background-color: #2274A5;
+
+  }
+
+  .item__admin {
+    background-color: #1E892F;
+  }
+
+  .item__personnel {
+    background-color: #741E89;
+  }
+
+  .item__recruitment {
+    background-color: #891E4B;
+  }
+  .item__constructor {
+    background-color: #CF9603;
+  }
+  .item__store {
+    background-color: #FF5C5C;
+  }
+  .item__payments {
+    background-color: #1e7589;
+  }
+  .item__communicate {
+    background-color: #321e89;
+  }
+  .item__parsers {
+    background-color: #897b1e;
+  }
+  .item__analytics {
+    background-color: #891e64;
+  }
+  .item__office {
+    background-color: #ff6a00;
+  }
+
+  </style>
